@@ -49,16 +49,12 @@ function playRound(playerSelection, computerSelection) {
 
 function scoreUpdater(playerSelection, computerSelection) {
     const score = winnerChecker(playerSelection, computerSelection);
-    if (
-        ((score == "Tie") &&
-        (score == "Player")) ||
-        (score == "Computer")
-        ) {
+    if (score == "Tie") {
        return ++rounds;
     } else if (score == "Player") {
-        return ++playerScore;
+        return ++playerScore && ++rounds;
     } else {
-        return ++computerScore;
+        return ++computerScore && ++rounds;
     }
 }
   
