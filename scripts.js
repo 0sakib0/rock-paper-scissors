@@ -77,8 +77,3 @@ reset.addEventListener('click', () => {
     location.reload();
 })
 
-function currentRound () {
-
-}
-
-playRound().textContent = "Player:"
