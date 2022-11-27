@@ -5,18 +5,19 @@ let reset = document.querySelector('.reset');
 let playerScoreText = document.querySelector('.playerscore');
 let computerScoreText = document.querySelector('.computerscore') ;
 let roundsText = document.querySelector('.rounds');
+let winner = document.querySelector('.currentresult');
 
 
 let buttons = document.querySelectorAll('img');
 buttons.forEach(buttons => {
     buttons.addEventListener('click', () => {
-        oneClick(buttons.ariaValueText.toLowerCase())
+        oneClick(buttons.ariaValueText)
     })
 });
 
 
 const getComputerChoice = () => {
-    let arrays = ["rock","paper","scissors"];
+    let arrays = ["Rock","Paper","Scissors"];
     return arrays[Math.floor(Math.random() * arrays.length)];
 };
 
@@ -25,9 +26,9 @@ function winnerChecker(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         return "Tie"; 
     } else if (
-    (playerSelection == "rock" && computerSelection == "scissors") || 
-    (playerSelection == "paper" && computerSelection == "rock") ||
-    (playerSelection == "scissors" && computerSelection == "paper")
+    (playerSelection == "Rock" && computerSelection == "Scissors") || 
+    (playerSelection == "Paper" && computerSelection == "Rock") ||
+    (playerSelection == "Scissors" && computerSelection == "Paper")
     ) {
         return "Player";
     } else {
@@ -60,13 +61,22 @@ function scoreUpdater(playerSelection, computerSelection) {
   
 function oneClick(playerSelection) {
     const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
+    let winnerOutcome = playRound(playerSelection, computerSelection);
     scoreUpdater(playerSelection, computerSelection);
     roundsText.textContent = `Round:${rounds}`;
     playerScoreText.textContent = `Player:${playerScore}`;
-    computerScoreText.textContent = `Computer:${computerScore}`
-
+    computerScoreText.textContent = `Computer:${computerScore}`;
+    winner.textContent = `${winnerOutcome}`
+    gameOver();
     
+}
+
+function gameOver() {
+    if (playerScore == 5) {
+        return winner.textContent = 'Congo "You win"! CLick above button to play again' 
+    } else if (computerScore == 5) {
+        return winner.textContent = "Sorry you lost to Computer,\ntry again by clicking above button!"
+    }
 }
 
 reset.addEventListener('click', () => {

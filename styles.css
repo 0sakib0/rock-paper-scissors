@@ -115,7 +115,11 @@ padding: 0px 600px;
 }
 
 .rounds {
-    padding-bottom: 30px;
+    padding-bottom: 5px;
     margin: auto;
     padding-left: 12px;
+}
+
+.currentresult {
+    padding-bottom: 30px;
 }
