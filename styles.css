@@ -1,0 +1,121 @@
+.header {
+    justify-content: center;
+    color: white;
+}
+
+body {
+    background: #41295a;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #2F0743, #41295a);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.img-box {
+   /*border: 1px solid white;*/
+   overflow-x: hidden;
+   padding: 50px 50px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    gap: 50px;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.2px);
+    -webkit-backdrop-filter: blur(9.2px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    height: 300px;
+    width: 800px;
+}
+
+.images {
+    width: 150px;
+    padding-bottom: 10px;
+    filter: drop-shadow(4px 5px 3px black);
+}
+
+body {
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    color: white;
+}
+
+.text {
+    padding-left: 16px;
+    
+}
+
+.main {
+    font-size:50px;
+}
+
+.move-text {
+    font-size: x-large;
+    padding-bottom: 10px;
+    padding-bottom: 20px;
+}
+
+.rock {
+padding-right: 10px;
+}
+
+.images:hover {
+    transform: scale(1.08);
+}
+
+.images:active {
+    transform: scale(1);
+}
+
+.line {
+    display: flex;
+    border-top: 1px solid;
+    width: 600px;
+    margin: auto;
+    border-style:double;
+    filter:opacity(70%);
+    filter:drop-shadow(4px 5px 3px black);
+    
+}
+
+.result-container {
+display: flex;
+justify-content: space-between;
+padding: 0px 600px;
+}
+
+@media (min-width: 900px) {
+    .result-container {
+        padding: 0px 200px;
+    }
+  }
+
+@media (min-width: 1800px) {
+    .result-container {
+        padding:0px 600px ;
+    }
+}
+
+.reset {
+    width: 50px;
+    position:sticky;  
+    padding-bottom: 15px;  
+}
+
+.reset:hover {
+    transform: scale(1.08);
+}
+
+.reset:active {
+    transform: scale(1);
+}
+
+.rounds {
+    padding-bottom: 30px;
+    margin: auto;
+    padding-left: 12px;
+}

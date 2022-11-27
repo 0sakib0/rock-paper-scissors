@@ -1,3 +1,20 @@
+let playerScore = 0;
+let computerScore = 0;
+let rounds = 0;
+let reset = document.querySelector('.reset');
+let playerScoreText = document.querySelector('.playerscore');
+let computerScoreText = document.querySelector('.computerscore') ;
+let roundsText = document.querySelector('.rounds');
+
+
+let buttons = document.querySelectorAll('img');
+buttons.forEach(buttons => {
+    buttons.addEventListener('click', () => {
+        oneClick(buttons.ariaValueText.toLowerCase())
+    })
+});
+
+
 const getComputerChoice = () => {
     let arrays = ["rock","paper","scissors"];
     return arrays[Math.floor(Math.random() * arrays.length)];
@@ -29,32 +46,39 @@ function playRound(playerSelection, computerSelection) {
     }
   }
 
-function getPlayerChoice() {
-        const playerChoice = prompt("Enter your move between Rock Paper and Scissors:");
-        return playerChoice.toLowerCase();
-}
 
-function game() {
-    let userScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        
-        let playerSelection = getPlayerChoice();
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-        if (winnerChecker(playerSelection, computerSelection) == "Computer") {
-            ++computerScore;
-    } else if(winnerChecker(playerSelection, computerSelection) == "Player") {
-        ++userScore;
+function scoreUpdater(playerSelection, computerSelection) {
+    const score = winnerChecker(playerSelection, computerSelection);
+    if (
+        ((score == "Tie") &&
+        (score == "Player")) ||
+        (score == "Computer")
+        ) {
+       return ++rounds;
+    } else if (score == "Player") {
+        return ++playerScore;
+    } else {
+        return ++computerScore;
     }
+}
+  
+function oneClick(playerSelection) {
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+    scoreUpdater(playerSelection, computerSelection);
+    roundsText.textContent = `Round:${rounds}`;
+    playerScoreText.textContent = `Player:${playerScore}`;
+    computerScoreText.textContent = `Computer:${computerScore}`
 
-} console.log("Game Over")
-  if(userScore > computerScore) {
-    console.log("You won!");
-  } else {
-    console.log("Computer Won!");
-  }
+    
+}
+
+reset.addEventListener('click', () => {
+    location.reload();
+})
+
+function currentRound () {
 
 }
 
-game();
+playRound().textContent = "Player:"
