@@ -64,8 +64,8 @@ function oneClick(playerSelection) {
     let winnerOutcome = playRound(playerSelection, computerSelection);
     scoreUpdater(playerSelection, computerSelection);
     roundsText.textContent = `Round:${rounds}`;
-    playerScoreText.textContent = `Player:${playerScore}`;
-    computerScoreText.textContent = `Computer:${computerScore}`;
+    playerScoreText.textContent = `Player Score:${playerScore}`;
+    computerScoreText.textContent = `Computer Score:${computerScore}`;
     winner.textContent = `${winnerOutcome}`
     gameOver();
     
